@@ -13,21 +13,20 @@ import shutil
 import commands
 
 """
-Program to calculate revenue amounts
+Program to calculate amounts
 
 General shell:
-- store the rev arguments passed
+- store the arguments passed
 - print out the arguments
-- perform revenue calculations
+- perform calculations
 - print
 
 """
 
-def calc_rev(orderrev,config):
+def calc(order,config):
   """
 
   """
-  mratio = .1375
   
 # hash table of license revenue percentage for rev splits
   dict = {}
@@ -40,26 +39,23 @@ def calc_rev(orderrev,config):
   dict['T40'] = .65 
   
   print '***Reference Variables***'
-  print 'MRatio: ' + str(mratio*100) + '%'
   
-  rev = orderrev*(1-mratio)
   config = config.upper()
   if config in dict:
-	crev = dict[config]*orderrev
+	cr = dict[config]*order
   else:
-	crev = 0
+	cr = 0
 
-  print 'Model: ' + config.upper()
-  print 'Model Cut: ' + str(dict[config])
+  print 'Thing: ' + config.upper()
+  print 'Thing %: ' + str(dict[config])
   
   
   print '***Calculations***'
-  print 'Revenue: $' + str(rev)
   
-  if crev == 0:
+  if cr == 0:
 	print 'Invalid config. Please re-enter. e.g., T20'
   else:
-	print 'Comp Revenue: $' + str(crev)
+	print 'CR: $' + str(cr)
   
   
 def main():
@@ -70,16 +66,16 @@ def main():
   args = sys.argv[1:]
 
   if len(args) != 2:
-    print "usage: [ Pls provide order revenue as number and the thing e.g., 1400000 T20  ]";
+    print "usage: [ Pls provide number and the thing e.g., 1400000 T20  ]";
     sys.exit(1)
   else:
-	orderrev = args[0]
+	order = args[0]
 	config = args[1]
 
   print '\n\n\n\n\n\n\n\n'
   print '**MTM\'s basic calculator**\n\n'
 
-  calc_rev(float(orderrev),config)
+  calc(float(order),config)
   
 if __name__ == "__main__":
   main()
