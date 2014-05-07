@@ -2,7 +2,7 @@
 # Copyright 2013 MTM
 
 
-# Program to calculate revenue
+# Program to calculate a percentage of a given number, using dict, input parameters
 # 
 # 
 
@@ -28,7 +28,7 @@ def calc(order,config):
 
   """
   
-# hash table of license revenue percentage for rev splits
+# hash table of percentages
   dict = {}
   dict['T2'] = .53
   dict['T5'] = .63
