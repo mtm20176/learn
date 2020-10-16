@@ -10,7 +10,7 @@ import sys
 import re
 import os
 import shutil
-import commands
+#import commands
 
 """
 Program to calculate amounts
@@ -38,26 +38,26 @@ def calc(order,config):
   dict['T30'] = .64
   dict['T40'] = .65 
   
-  print '***Reference Variables***'
+  print('***Reference Variables***')
   
   config = config.upper()
   if config in dict:
-	cr = dict[config]*order
+	  cr = dict[config]*order
   else:
-	cr = 0
+	  cr = 0
 
-  print 'Thing: ' + config.upper()
-  print 'Thing %: ' + str(dict[config])
+  print('Thing: ' + config.upper())
+  print('Thing %: ' + str(dict[config]))
   
   
-  print '***Calculations***'
+  print('***Calculations***')
   
   if cr == 0:
-	print 'Invalid config. Please re-enter. e.g., T20'
+	  print('Invalid config. Please re-enter. e.g., T20')
   else:
-	print 'CR: $' + str(cr)
+	  print('CR: $' + str(cr))
   
-  
+
 def main():
   # This basic command line argument parsing code is provided.
 
@@ -66,14 +66,14 @@ def main():
   args = sys.argv[1:]
 
   if len(args) != 2:
-    print "usage: [ Pls provide number and the thing e.g., 1400000 T20  ]";
+    print("usage: [ Pls provide number and the thing e.g., 1400000 T20  ]");
     sys.exit(1)
   else:
-	order = args[0]
-	config = args[1]
+	  order = args[0]
+	  config = args[1]
 
-  print '\n\n\n\n\n\n\n\n'
-  print '**MTM\'s basic calculator**\n\n'
+  print('\n\n\n\n\n\n\n\n')
+  print('**MTM\'s basic calculator**\n\n')
 
   calc(float(order),config)
   
